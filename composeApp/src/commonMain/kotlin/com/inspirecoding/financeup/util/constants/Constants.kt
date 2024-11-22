@@ -15,6 +15,7 @@ object Constants {
         const val KEY_NUMBER_FOUR = 4
         const val KEY_NUMBER_FIVE = 5
         const val KEY_NUMBER_EIGHT = 8
+        const val KEY_DURATION_CURRENT_STEP_MIN: Long = 100
         const val KEY_DURATION_ANIMATION_MIN = 500
         const val KEY_TOAST_DURATION_MAX: Long = 5000
     }

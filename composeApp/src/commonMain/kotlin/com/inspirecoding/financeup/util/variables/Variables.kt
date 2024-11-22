@@ -50,6 +50,7 @@ object Variables {
     val financeUpFontWeightBold: Int = 700
 
     // Line Height
+    val financeUpLineHeightTopBarText: TextUnit = 19.6.sp
     val financeUpLineHeightHeaderTitle: TextUnit = 26.4.sp
     val financeUpLineHeightHeaderSubtitle: TextUnit = 16.8.sp
 }

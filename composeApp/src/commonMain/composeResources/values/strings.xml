@@ -1,0 +1,17 @@
+<resources>
+
+    <!--    Invalid E-mail Format-->
+    <string name="message_email_invalid_format">Para continuar insira um e-mail válido</string>
+
+    <!--    Invalid password Format-->
+    <string name="message_password_invalid_format">Você precisa informar sua senha</string>
+
+    <!--    Label Inputs-->
+    <string name="label_input_email">E-mail</string>
+    <string name="label_input_password">Senha</string>
+
+    <!--    Login Email Screen-->
+    <string name="text_title_top_app_bar_login_email_screen">Início</string>
+    <string name="text_title_login_email_screen">Insira seu e-mail para continuar</string>
+    <string name="text_subtitle_login_email_screen">Precisamos dele para iniciar o seu acesso</string>
+</resources>

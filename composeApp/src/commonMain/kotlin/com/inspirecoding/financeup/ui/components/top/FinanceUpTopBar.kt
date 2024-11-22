@@ -14,15 +14,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.unit.sp
 import com.inspirecoding.financeup.ui.theme.FinanceUpTheme
 import com.inspirecoding.financeup.ui.typography.LTAsusFontFamily
 import com.inspirecoding.financeup.util.constants.Constants.Text.EMPTY_STRING_DEFAULT
-import com.inspirecoding.financeup.util.variables.Variables.financeUpDimen2XLarge
 import com.inspirecoding.financeup.util.variables.Variables.financeUpDimen4XsLarge
+import com.inspirecoding.financeup.util.variables.Variables.financeUpDimenExtraWideL
+import com.inspirecoding.financeup.util.variables.Variables.financeUpLineHeightTopBarText
 import financeup.composeapp.generated.resources.Res
-import financeup.composeapp.generated.resources.app_logo
 import financeup.composeapp.generated.resources.finance_up_ic_arrow_left
+import financeup.composeapp.generated.resources.finance_up_logo
 import org.jetbrains.compose.resources.painterResource
 
 @Composable
@@ -59,7 +59,7 @@ fun FinanceUpTopBar(
                     fontFamily = LTAsusFontFamily(),
                     text = navigationText,
                     style = TextStyle(
-                        lineHeight = 19.6.sp,
+                        lineHeight = financeUpLineHeightTopBarText,
                         color = FinanceUpTheme.colorScheme.text.color
                     )
                 )
@@ -67,10 +67,10 @@ fun FinanceUpTopBar(
         }
 
         Image(
-            painter = painterResource(Res.drawable.app_logo),
+            painter = painterResource(Res.drawable.finance_up_logo),
             contentDescription = null,
             modifier = Modifier
-                .height(financeUpDimen2XLarge)
+                .height(financeUpDimenExtraWideL)
                 .align(Alignment.Center)
         )
     }

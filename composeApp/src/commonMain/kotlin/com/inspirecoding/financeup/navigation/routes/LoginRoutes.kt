@@ -8,6 +8,6 @@ sealed interface LoginRoutes {
     data object Email: LoginRoutes
 
     @Serializable
-    data class Password(val email: String): LoginRoutes
+    data class Secret(val email: String): LoginRoutes
 
 }

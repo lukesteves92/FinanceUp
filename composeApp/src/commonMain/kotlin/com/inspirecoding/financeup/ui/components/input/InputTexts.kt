@@ -35,7 +35,7 @@ import com.inspirecoding.financeup.ui.typography.FinanceUpTypography
 import com.inspirecoding.financeup.ui.typography.LTAsusFontFamily
 import com.inspirecoding.financeup.util.constants.Constants.Numbers.KEY_NUMBER_ONE
 import com.inspirecoding.financeup.util.constants.Constants.Text.EMPTY_STRING_DEFAULT
-import com.inspirecoding.financeup.util.enums.TextFieldState
+import com.inspirecoding.financeup.util.enums.inputtext.TextFieldState
 import com.inspirecoding.financeup.util.secret.CustomSecretVisualTransformation
 import com.inspirecoding.financeup.util.variables.Variables.financeUpBorderRadiusMicro
 import com.inspirecoding.financeup.util.variables.Variables.financeUpBorderRadiusS
