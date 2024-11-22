@@ -1,7 +1,9 @@
-package com.inspirecoding.financeup.util
+package com.inspirecoding.financeup.util.variables
 
 import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 
 object Variables {
 
@@ -28,4 +30,15 @@ object Variables {
     val financeUpDimenExtraWideM: Dp = 156.dp
     val financeUpDimenExtraWideL: Dp = 170.dp
 
+    // Size
+    val financeUpSizeXs = 24.sp
+
+    // FontWeight
+    val financeUpFontWeightLight: Int = 300
+    val financeUpFontWeightNormal: Int = 400
+    val financeUpFontWeightBold: Int = 700
+
+    // Line Height
+    val financeUpLineHeightHeaderTitle: TextUnit = 26.4.sp
+    val financeUpLineHeightHeaderSubtitle: TextUnit = 16.8.sp
 }

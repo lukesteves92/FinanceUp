@@ -15,14 +15,14 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import com.inspirecoding.financeup.ui.theme.FinanceUpTheme
-import com.inspirecoding.financeup.util.Constants.Numbers.KEY_DURATION_ANIMATION_MIN
-import com.inspirecoding.financeup.util.Constants.Numbers.KEY_NUMBER_ONE
-import com.inspirecoding.financeup.util.Constants.Text.EMPTY_STRING_DEFAULT
-import com.inspirecoding.financeup.util.Variables.financeUpDimenExtraSmall
-import com.inspirecoding.financeup.util.Variables.financeUpDimenMedium
-import com.inspirecoding.financeup.util.Variables.financeUpDimenSmall
-import com.inspirecoding.financeup.util.Variables.financeUpOpacity10Percent
-import com.inspirecoding.financeup.util.Variables.financeUpOpacity70Percent
+import com.inspirecoding.financeup.util.constants.Constants.Numbers.KEY_DURATION_ANIMATION_MIN
+import com.inspirecoding.financeup.util.constants.Constants.Numbers.KEY_NUMBER_ONE
+import com.inspirecoding.financeup.util.constants.Constants.Text.EMPTY_STRING_DEFAULT
+import com.inspirecoding.financeup.util.variables.Variables.financeUpDimenExtraSmall
+import com.inspirecoding.financeup.util.variables.Variables.financeUpDimenMedium
+import com.inspirecoding.financeup.util.variables.Variables.financeUpDimenSmall
+import com.inspirecoding.financeup.util.variables.Variables.financeUpOpacity10Percent
+import com.inspirecoding.financeup.util.variables.Variables.financeUpOpacity70Percent
 
 @Composable
 fun PagerIndicator(

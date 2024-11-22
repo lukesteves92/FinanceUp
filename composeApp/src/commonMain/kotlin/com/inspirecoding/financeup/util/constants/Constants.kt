@@ -1,4 +1,4 @@
-package com.inspirecoding.financeup.util
+package com.inspirecoding.financeup.util.constants
 
 object Constants {
 

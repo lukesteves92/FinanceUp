@@ -9,7 +9,7 @@ import androidx.compose.ui.graphics.Brush
 import com.inspirecoding.financeup.ui.color.ScreenBackgroundColorWhite
 import com.inspirecoding.financeup.ui.color.ScreenBackgroundColorYellow
 import com.inspirecoding.financeup.ui.theme.FinanceUpTheme
-import com.inspirecoding.financeup.util.Variables.financeUpOpacity90Percent
+import com.inspirecoding.financeup.util.variables.Variables.financeUpOpacity90Percent
 
 @Composable
 fun FinanceUpDefaultBackground() {
