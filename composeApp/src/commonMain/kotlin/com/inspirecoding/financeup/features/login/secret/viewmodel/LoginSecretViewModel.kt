@@ -7,7 +7,7 @@ import androidx.navigation.toRoute
 import com.inspirecoding.financeup.extensions.isValidSecret
 import com.inspirecoding.financeup.features.login.secret.action.LoginSecretAction
 import com.inspirecoding.financeup.features.login.secret.state.LoginSecretState
-import com.inspirecoding.financeup.navigation.routes.LoginRoutes
+import com.inspirecoding.financeup.navigation.routes.login.LoginRoutes
 import com.inspirecoding.financeup.util.enums.inputtext.TextFieldState
 import com.inspirecoding.financeup.util.enums.loginstep.LoginStep
 import kotlinx.coroutines.delay

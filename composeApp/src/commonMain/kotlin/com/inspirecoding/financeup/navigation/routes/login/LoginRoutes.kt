@@ -1,4 +1,4 @@
-package com.inspirecoding.financeup.navigation.routes
+package com.inspirecoding.financeup.navigation.routes.login
 
 import kotlinx.serialization.Serializable
 
