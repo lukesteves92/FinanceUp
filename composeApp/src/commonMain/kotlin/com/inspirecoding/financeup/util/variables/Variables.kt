@@ -7,6 +7,17 @@ import androidx.compose.ui.unit.sp
 
 object Variables {
 
+    // Border radius
+    val financeUpBorderRadiusNone: Dp = 0.dp
+    val financeUpBorderRadiusS: Dp = 1.dp
+    val financeUpBorderRadiusMicro: Dp = 2.dp
+    val financeUpBorderRadiusXs: Dp = 4.dp
+    val financeUpBorderRadiusSm: Dp = 8.dp
+    val financeUpBorderRadiusMd: Dp = 12.dp
+    val financeUpBorderRadiusLg: Dp = 16.dp
+    val financeUpBorderRadiusXl: Dp = 24.dp
+    val financeUpBorderRadiusXxl: Dp = 32.dp
+
     // Opacity
     val financeUpOpacity10Percent: Float = 0.1f
     val financeUpOpacity70Percent: Float = 0.7f
