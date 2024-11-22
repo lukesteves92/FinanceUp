@@ -55,6 +55,8 @@ val TextColor = Color(0xFFFFFFFF)
 
 // Screen Colors
 val ScreenBackgroundColor = Color(0xFF39383F)
+val ScreenBackgroundColorYellow = Color(0xFFC4A02F)
+val ScreenBackgroundColorWhite = Color(0xFFFFFFFF)
 
 // Icon Checkmark
 val IconCheckMarkColor = Color(0xFF03A64A)
