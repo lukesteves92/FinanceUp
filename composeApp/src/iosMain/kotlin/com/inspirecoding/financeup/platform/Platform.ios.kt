@@ -1,4 +1,4 @@
-package com.inspirecoding.financeup
+package com.inspirecoding.financeup.platform
 
 import platform.UIKit.UIDevice
 

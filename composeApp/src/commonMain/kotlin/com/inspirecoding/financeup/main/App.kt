@@ -1,4 +1,4 @@
-package com.inspirecoding.financeup
+package com.inspirecoding.financeup.main
 
 import androidx.compose.runtime.*
 import org.jetbrains.compose.ui.tooling.preview.Preview
