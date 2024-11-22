@@ -1,4 +1,4 @@
-package com.inspirecoding.financeup.ui.components
+package com.inspirecoding.financeup.ui.components.background
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -9,7 +9,7 @@ import androidx.compose.ui.graphics.Brush
 import com.inspirecoding.financeup.ui.color.ScreenBackgroundColorWhite
 import com.inspirecoding.financeup.ui.color.ScreenBackgroundColorYellow
 import com.inspirecoding.financeup.ui.theme.FinanceUpTheme
-import com.inspirecoding.financeup.util.Variables.helloOpacity90Percent
+import com.inspirecoding.financeup.util.Variables.financeUpOpacity90Percent
 
 @Composable
 fun FinanceUpDefaultBackground() {
@@ -19,8 +19,8 @@ fun FinanceUpDefaultBackground() {
             .background(
                 brush = Brush.horizontalGradient(
                     colors = listOf(
-                        ScreenBackgroundColorYellow.copy(alpha = helloOpacity90Percent),
-                        ScreenBackgroundColorWhite.copy(alpha = helloOpacity90Percent)
+                        ScreenBackgroundColorYellow.copy(alpha = financeUpOpacity90Percent),
+                        ScreenBackgroundColorWhite.copy(alpha = financeUpOpacity90Percent)
                     )
                 )
             )
@@ -32,7 +32,7 @@ fun FinanceUpDefaultBackground() {
                 Brush.verticalGradient(
                     colors = listOf(
                         FinanceUpTheme.colorScheme.screen.background,
-                        FinanceUpTheme.colorScheme.screen.background.copy(alpha = helloOpacity90Percent),
+                        FinanceUpTheme.colorScheme.screen.background.copy(alpha = financeUpOpacity90Percent),
                         FinanceUpTheme.colorScheme.screen.background
                     )
                 )

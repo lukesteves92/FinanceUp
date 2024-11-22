@@ -1,9 +1,31 @@
 package com.inspirecoding.financeup.util
 
+import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.dp
+
 object Variables {
 
     // Opacity
-    val helloOpacity70Percent: Float = 0.7f
-    val helloOpacity90Percent: Float = 0.9f
+    val financeUpOpacity10Percent: Float = 0.1f
+    val financeUpOpacity70Percent: Float = 0.7f
+    val financeUpOpacity90Percent: Float = 0.9f
+
+    // Dimen
+    val financeUpDimenMicro: Dp = 2.dp
+    val financeUpDimenExtraSmall: Dp = 4.dp
+    val financeUpDimenSmall: Dp = 6.dp
+    val financeUpDimenSmallMedium: Dp = 8.dp
+    val financeUpDimenMedium: Dp = 12.dp
+    val financeUpDimenLarge: Dp = 16.dp
+    val financeUpDimenExtraLarge: Dp = 18.dp
+    val financeUpDimen2XLarge: Dp = 24.dp
+    val financeUpDimen3XLarge: Dp = 32.dp
+    val financeUpDimen3XsLarge: Dp = 40.dp
+    val financeUpDimen4XLarge: Dp = 42.dp
+    val financeUpDimen4XsLarge: Dp = 56.dp
+    val financeUpDimen5XLarge: Dp = 62.dp
+    val financeUpDimenExtraWideS: Dp = 132.dp
+    val financeUpDimenExtraWideM: Dp = 156.dp
+    val financeUpDimenExtraWideL: Dp = 170.dp
 
 }
