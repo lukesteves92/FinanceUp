@@ -6,6 +6,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.inspirecoding.financeup.features.login.email.screen.LoginEmailScreen
+import com.inspirecoding.financeup.features.login.secret.screen.LoginSecretScreen
 import com.inspirecoding.financeup.navigation.routes.LoginRoutes
 
 
@@ -21,13 +22,22 @@ fun LoginNavHost(
     ) {
         composable<LoginRoutes.Email> {
             LoginEmailScreen(
-                navigateToLoginPasswordScreen = { email -> },
+                navigateToLoginPasswordScreen = { email ->
+                    navHostController.navigate(LoginRoutes.Secret(email))
+                },
                 onBackPressed = {
                     navHostController.popBackStack()
                 }
             )
         }
 
-        composable<LoginRoutes.Secret> {}
+        composable<LoginRoutes.Secret> {
+            LoginSecretScreen(
+                navigateToHomeScreen = {},
+                onBackPressed = {
+                    navHostController.popBackStack()
+                }
+            )
+        }
     }
 }

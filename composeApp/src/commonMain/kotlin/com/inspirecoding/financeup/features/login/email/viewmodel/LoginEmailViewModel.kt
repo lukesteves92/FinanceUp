@@ -67,6 +67,6 @@ class LoginEmailViewModel : ViewModel() {
 
     private fun clearNavigation() {
         _state.update { it.copy(navigateToPasswordScreen = false) }
-        setCurrentStep(step = LoginStep.LOGIN_PASSWORD)
+        setCurrentStep(step = LoginStep.LOGIN_SECRET)
     }
 }

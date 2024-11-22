@@ -8,10 +8,15 @@
 
     <!--    Label Inputs-->
     <string name="label_input_email">E-mail</string>
-    <string name="label_input_password">Senha</string>
+    <string name="label_input_secret">Senha</string>
 
     <!--    Login Email Screen-->
     <string name="text_title_top_app_bar_login_email_screen">Início</string>
     <string name="text_title_login_email_screen">Insira seu e-mail para continuar</string>
     <string name="text_subtitle_login_email_screen">Precisamos dele para iniciar o seu acesso</string>
+
+    <!--    Login Secret Screen-->
+    <string name="text_title_top_app_bar_login_secret_screen">E-mail</string>
+    <string name="text_title_login_secret_screen">Agora insira sua senha</string>
+    <string name="text_subtitle_login_secret_screen">Senha utilizada para entrar no app</string>
 </resources>
