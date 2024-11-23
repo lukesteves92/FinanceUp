@@ -49,8 +49,11 @@ fun String.isValidSecret(): TextFieldState {
 }
 
 fun Float.formatCurrency(): String {
-    val integerPart = this.toInt()
-    val decimalPart = ((this - integerPart) * 100).toInt().let {
+    val isNegative = this < 0
+    val absoluteValue = kotlin.math.abs(this)
+
+    val integerPart = absoluteValue.toInt()
+    val decimalPart = ((absoluteValue - integerPart) * 100).toInt().let {
         if (it < 10) "0$it" else it.toString()
     }
 
@@ -61,7 +64,11 @@ fun Float.formatCurrency(): String {
         .joinToString(".")
         .reversed()
 
-    return "R$ $formattedIntegerPart,$decimalPart"
+    return if (isNegative) {
+        "R$ -$formattedIntegerPart,$decimalPart"
+    } else {
+        "R$ $formattedIntegerPart,$decimalPart"
+    }
 }
 
 fun Float.toPercentage(): String {

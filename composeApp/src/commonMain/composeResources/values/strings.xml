@@ -1,15 +1,20 @@
 <resources>
 
+    <!--    Menu DropDown -->
+    <string name="text_select_date">Selecione uma data</string>
+
     <!--    Spending Section Component -->
-    <string name="text_spending_section_component_title">Detalhamento de Gastos</string>
+    <string name="text_spending_section_component_title">Seus Gastos</string>
 
     <!--    Income Section Component -->
-    <string name="text_income_section_component_title">Detalhamento de Recebimentos</string>
+    <string name="text_income_section_component_title">Seus Recebimentos</string>
 
     <!--    Expenses And Incomes Component -->
-    <string name="text_expenses_and_incomes_component_title">Seus Gastos</string>
+    <string name="text_expenses_and_incomes_component_title">Financeiro</string>
     <string name="text_expenses_component_title">Gastos</string>
     <string name="text_incomes_component_title">Recebimentos</string>
+    <string name="text_expenses_and_incomes_component_bt_title">Adicionar</string>
+    <string name="text_no_data">Sem dados</string>
 
     <!--    Budget Component -->
     <string name="text_budget_component_title">Orçamento Mensal</string>

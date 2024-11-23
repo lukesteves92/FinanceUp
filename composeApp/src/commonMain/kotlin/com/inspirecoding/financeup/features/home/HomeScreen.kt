@@ -7,12 +7,15 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.derivedStateOf
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import com.inspirecoding.financeup.extensions.formatCurrency
 import com.inspirecoding.financeup.model.IncomeItem
 import com.inspirecoding.financeup.model.SpendingItem
 import com.inspirecoding.financeup.ui.components.background.FinanceUpDefaultBackground
@@ -32,9 +35,44 @@ fun HomeScreen() {
 
 @Composable
 fun HomeContent() {
+    var currentSelectedDate by remember { mutableStateOf("Novembro/2024") }
+    val spendingItems = remember {
+        mutableStateListOf(
+            SpendingItem("Almoço", 120f, ExpenseType.FOOD, "Novembro/2024"),
+            SpendingItem("Compras", 350f, ExpenseType.SHOPPING, "Outubro/2024"),
+            SpendingItem("Aluguel", 1500f, ExpenseType.RENT, "Setembro/2024"),
+            SpendingItem("Cinema", 45f, ExpenseType.LEISURE, "Setembro/2024"),
+            SpendingItem("Outros", 80f, ExpenseType.OTHERS, "Agosto/2024")
+        )
+    }
+    val incomeItems = remember {
+        mutableStateListOf(
+            IncomeItem("Salário", 5000f, IncomeType.SALARY, "Novembro/2024"),
+            IncomeItem("Rendimentos", 1200f, IncomeType.EARNINGS, "Outubro/2024"),
+            IncomeItem("Outros", 350f, IncomeType.OTHERS, "Agosto/2024")
+        )
+    }
 
-    val totalExpenses = remember { mutableStateOf(6650f) }
-    val totalIncomes = remember { mutableStateOf(8500f) }
+    val availableDates by derivedStateOf {
+        (spendingItems.map { it.purchaseDate } + incomeItems.map { it.receivedDate })
+            .distinct()
+            .sortedDescending()
+    }
+
+    val filteredSpendingItems by derivedStateOf {
+        spendingItems.filter { it.purchaseDate == currentSelectedDate }
+    }
+    val filteredIncomeItems by derivedStateOf {
+        incomeItems.filter { it.receivedDate == currentSelectedDate }
+    }
+
+    val totalExpenses by derivedStateOf {
+        filteredSpendingItems.sumOf { it.amount.toDouble() }.toFloat()
+    }
+
+    val totalIncomes by derivedStateOf {
+        filteredIncomeItems.sumOf { it.amount.toDouble() }.toFloat()
+    }
 
     Scaffold(
         modifier = Modifier.fillMaxSize(),
@@ -55,96 +93,69 @@ fun HomeContent() {
                     .verticalScroll(rememberScrollState()),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-
+                // Seção de Gastos e Receitas
                 ExpensesAndIncomes(
-                    totalExpenses = { totalExpenses.value },
-                    totalIncomes = { totalIncomes.value }
+                    totalExpenses = { totalExpenses },
+                    totalIncomes = { totalIncomes },
+                    selectedDate = { currentSelectedDate },
+                    onDateChange = { newDate ->
+                        currentSelectedDate = newDate
+                    },
+                    availableDates = { availableDates }
                 )
 
+                // Barra de Progresso do Orçamento
                 BudgetProgressBar(
-                    budget = totalIncomes.value.formatCurrency(),
-                    spentAmount = { totalExpenses.value },
-                    totalBudget = { totalIncomes.value }
+                    spentAmount = { totalExpenses },
+                    totalBudget = { totalIncomes }
                 )
 
-                SpendingBreakdownScreen()
+                // Lista de Gastos
+                SpendingBreakdownScreen(
+                    spendingItems = filteredSpendingItems,
+                    onDeleteItem = { item ->
+                        spendingItems.remove(item)
+                    }
+                )
 
-                IncomeBreakdownScreen()
+                // Lista de Receitas
+                IncomeBreakdownScreen(
+                    incomeItems = filteredIncomeItems,
+                    onDeleteItem = { item ->
+                        incomeItems.remove(item)
+                    }
+                )
             }
         }
     )
 }
 
 @Composable
-fun SpendingBreakdownScreen() {
-    val spendingItems = listOf(
-        SpendingItem(
-            name = "Almoço",
-            amount = 120f,
-            type = ExpenseType.FOOD,
-            purchaseDate = "Outubro/2024"
-        ),
-        SpendingItem(
-            name = "Compras",
-            amount = 350f,
-            type = ExpenseType.SHOPPING,
-            purchaseDate = "Outubro/2024"
-        ),
-        SpendingItem(
-            name = "Aluguel",
-            amount = 1500f,
-            type = ExpenseType.RENT,
-            purchaseDate = "Setembro/2024"
-        ),
-        SpendingItem(
-            name = "Cinema",
-            amount = 45f,
-            type = ExpenseType.LEISURE,
-            purchaseDate = "Setembro/2024"
-        ),
-        SpendingItem(
-            name = "Outros",
-            amount = 80f,
-            type = ExpenseType.OTHERS,
-            purchaseDate = "Agosto/2024"
-        )
-    )
-
+fun SpendingBreakdownScreen(
+    spendingItems: List<SpendingItem>,
+    onDeleteItem: (SpendingItem) -> Unit
+) {
     SpendingSection(
         spendingItemsProvider = { spendingItems },
-        modifier = Modifier.fillMaxSize()
+        modifier = Modifier.fillMaxSize(),
+        isAddItem = {},
+        onDeleteItem = onDeleteItem
     )
 }
-
 
 @Composable
-fun IncomeBreakdownScreen() {
-    val incomeItems = listOf(
-        IncomeItem(
-            name = "Salário",
-            amount = 5000f,
-            type = IncomeType.SALARY,
-            receivedDate = "Outubro/2024"
-        ),
-        IncomeItem(
-            name = "Rendimentos",
-            amount = 1200f,
-            type = IncomeType.EARNINGS,
-            receivedDate = "Setembro/2024"
-        ),
-        IncomeItem(
-            name = "Outros",
-            amount = 350f,
-            type = IncomeType.OTHERS,
-            receivedDate = "Agosto/2024"
-        )
-    )
-
+fun IncomeBreakdownScreen(
+    incomeItems: List<IncomeItem>,
+    onDeleteItem: (IncomeItem) -> Unit
+) {
     IncomeSection(
         incomeItemsProvider = { incomeItems },
-        modifier = Modifier.fillMaxSize()
+        modifier = Modifier.fillMaxSize(),
+        onAddItem = {},
+        onDeleteItem = onDeleteItem
     )
 }
+
 
 
 
