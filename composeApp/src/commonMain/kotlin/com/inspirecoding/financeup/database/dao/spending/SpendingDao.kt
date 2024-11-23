@@ -3,6 +3,7 @@ package com.inspirecoding.financeup.database.dao.spending
 import androidx.room.*
 import com.inspirecoding.financeup.database.entity.spending.SpendingEntity
 import com.inspirecoding.financeup.util.constants.Constants
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface SpendingDao {
@@ -14,10 +15,10 @@ interface SpendingDao {
     suspend fun insertSpendings(spendings: List<SpendingEntity>)
 
     @Query("SELECT * FROM ${Constants.DataBase.SPENDING_TABLE} WHERE ${Constants.DataBase.PURCHASE_DATE_COLUMN_SPENDING_TABLE} = :date")
-    suspend fun getSpendingByDate(date: String): List<SpendingEntity>
+    fun getSpendingByDate(date: String): Flow<List<SpendingEntity>>
 
     @Query("SELECT * FROM ${Constants.DataBase.SPENDING_TABLE}")
-    suspend fun getAllSpendings(): List<SpendingEntity>
+    fun getAllSpendings(): Flow<List<SpendingEntity>>
 
     @Delete
     suspend fun deleteSpending(spending: SpendingEntity)
