@@ -7,6 +7,9 @@ import com.inspirecoding.financeup.di.usecase.local.useCaseLocalModule
 import com.inspirecoding.financeup.di.usecase.remote.useCaseRemoteModule
 import org.koin.core.KoinApplication
 import org.koin.core.context.startKoin
+import org.koin.core.module.Module
+
+expect val targetModule: Module
 
 fun initializeKoin(
     config: (KoinApplication.() -> Unit)? = null
@@ -14,6 +17,7 @@ fun initializeKoin(
     startKoin {
         config?.invoke(this)
         modules(
+            targetModule,
             presentationModule,
             dataModule,
             networkModule,
