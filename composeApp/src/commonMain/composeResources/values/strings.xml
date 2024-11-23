@@ -1,5 +1,11 @@
 <resources>
 
+    <!--    Spending Section Component -->
+    <string name="text_spending_section_component_title">Detalhamento de Gastos</string>
+
+    <!--    Income Section Component -->
+    <string name="text_income_section_component_title">Detalhamento de Recebimentos</string>
+
     <!--    Expenses And Incomes Component -->
     <string name="text_expenses_and_incomes_component_title">Seus Gastos</string>
     <string name="text_expenses_component_title">Gastos</string>

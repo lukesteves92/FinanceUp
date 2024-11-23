@@ -1,10 +1,7 @@
 package com.inspirecoding.financeup.features.home
 
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -16,12 +13,16 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import com.inspirecoding.financeup.extensions.formatCurrency
+import com.inspirecoding.financeup.model.IncomeItem
+import com.inspirecoding.financeup.model.SpendingItem
 import com.inspirecoding.financeup.ui.components.background.FinanceUpDefaultBackground
 import com.inspirecoding.financeup.ui.components.budget.BudgetProgressBar
-import com.inspirecoding.financeup.ui.components.button.FloatingButtonUI
 import com.inspirecoding.financeup.ui.components.expenses.ExpensesAndIncomes
+import com.inspirecoding.financeup.ui.components.income.section.IncomeSection
+import com.inspirecoding.financeup.ui.components.spending.section.SpendingSection
 import com.inspirecoding.financeup.ui.components.top.FinanceUpTopBar
-import com.inspirecoding.financeup.util.variables.Variables.financeUpDimenLarge
+import com.inspirecoding.financeup.util.enums.expensetype.ExpenseType
+import com.inspirecoding.financeup.util.enums.incometype.IncomeType
 
 
 @Composable
@@ -41,26 +42,7 @@ fun HomeContent() {
         topBar = {
             FinanceUpTopBar()
         },
-        bottomBar = {
-            Row(
-                modifier = Modifier
-                    .padding(financeUpDimenLarge)
-                    .fillMaxWidth(),
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.SpaceBetween
-            ) {
-
-                FloatingButtonUI(
-                    isLess = true,
-                    onClick = {}
-                )
-
-                FloatingButtonUI(
-                    isAdd = true,
-                    onClick = {}
-                )
-            }
-        },
+        bottomBar = {},
         floatingActionButton = {},
         content = { paddingValues ->
 
@@ -79,23 +61,97 @@ fun HomeContent() {
                     totalIncomes = { totalIncomes.value }
                 )
 
-                BudgetProgressBarExample()
+                BudgetProgressBar(
+                    budget = totalIncomes.value.formatCurrency(),
+                    spentAmount = { totalExpenses.value },
+                    totalBudget = { totalIncomes.value }
+                )
+
+                SpendingBreakdownScreen()
+
+                IncomeBreakdownScreen()
             }
         }
     )
 }
 
 @Composable
-fun BudgetProgressBarExample() {
-    val totalBudget = remember { mutableStateOf(8000f) }
-    val spentAmount = remember { mutableStateOf(8000f) }
+fun SpendingBreakdownScreen() {
+    val spendingItems = listOf(
+        SpendingItem(
+            name = "Almoço",
+            amount = 120f,
+            type = ExpenseType.FOOD,
+            purchaseDate = "Outubro/2024"
+        ),
+        SpendingItem(
+            name = "Compras",
+            amount = 350f,
+            type = ExpenseType.SHOPPING,
+            purchaseDate = "Outubro/2024"
+        ),
+        SpendingItem(
+            name = "Aluguel",
+            amount = 1500f,
+            type = ExpenseType.RENT,
+            purchaseDate = "Setembro/2024"
+        ),
+        SpendingItem(
+            name = "Cinema",
+            amount = 45f,
+            type = ExpenseType.LEISURE,
+            purchaseDate = "Setembro/2024"
+        ),
+        SpendingItem(
+            name = "Outros",
+            amount = 80f,
+            type = ExpenseType.OTHERS,
+            purchaseDate = "Agosto/2024"
+        )
+    )
 
-    BudgetProgressBar(
-        budget = totalBudget.value.formatCurrency(),
-        spentAmount = { spentAmount.value },
-        totalBudget = { totalBudget.value }
+    SpendingSection(
+        spendingItems = spendingItems,
+        modifier = Modifier.fillMaxSize()
     )
 }
+
+
+@Composable
+fun IncomeBreakdownScreen() {
+    val incomeItems = listOf(
+        IncomeItem(
+            name = "Salário",
+            amount = 5000f,
+            type = IncomeType.SALARY,
+            receivedDate = "Outubro/2024"
+        ),
+        IncomeItem(
+            name = "Rendimentos",
+            amount = 1200f,
+            type = IncomeType.EARNINGS,
+            receivedDate = "Setembro/2024"
+        ),
+        IncomeItem(
+            name = "Outros",
+            amount = 350f,
+            type = IncomeType.OTHERS,
+            receivedDate = "Agosto/2024"
+        )
+    )
+
+    IncomeSection(
+        incomeItems = incomeItems,
+        modifier = Modifier.fillMaxSize()
+    )
+}
+
+
+
+
+
+
+
 
 
 

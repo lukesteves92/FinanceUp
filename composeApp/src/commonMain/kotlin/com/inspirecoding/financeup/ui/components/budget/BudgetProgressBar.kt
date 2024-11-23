@@ -122,6 +122,7 @@ fun BudgetProgressBar(
             ) {
                 if (isOverBudget) {
                     Text(
+                        fontFamily = LTAsusFontFamily(),
                         text = stringResource(Res.string.text_budget_component_title_over),
                         color = Color.Red,
                         style = FinanceUpTypography.bodySmall,

@@ -14,6 +14,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import com.inspirecoding.financeup.ui.components.total.TotalCard
 import com.inspirecoding.financeup.ui.typography.FinanceUpTypography
+import com.inspirecoding.financeup.ui.typography.LTAsusFontFamily
 import com.inspirecoding.financeup.util.constants.Constants.ProgressConstants.MAX_PROGRESS
 import com.inspirecoding.financeup.util.variables.Variables.financeUpDimenLarge
 import financeup.composeapp.generated.resources.Res
@@ -29,6 +30,7 @@ fun ExpensesAndIncomes(
 ) {
     Column(modifier = Modifier.padding(financeUpDimenLarge)) {
         Text(
+            fontFamily = LTAsusFontFamily(),
             text = stringResource(Res.string.text_expenses_and_incomes_component_title),
             style = FinanceUpTypography.titleLarge,
             fontWeight = FontWeight.Bold,

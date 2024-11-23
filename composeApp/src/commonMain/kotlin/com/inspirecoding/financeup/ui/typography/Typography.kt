@@ -65,7 +65,6 @@ val FinanceUpTypography = Typography(
         fontSize = 14.sp,
         color = FinanceUpColorBaselineText
     ),
-    // Subtitle
     titleLarge = TextStyle(
         fontStyle = FontStyle.Normal,
         fontWeight = FontWeight.Normal,

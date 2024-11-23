@@ -22,6 +22,7 @@ import androidx.compose.ui.text.font.FontWeight
 import com.inspirecoding.financeup.extensions.formatCurrency
 import com.inspirecoding.financeup.ui.theme.FinanceUpTheme
 import com.inspirecoding.financeup.ui.typography.FinanceUpTypography
+import com.inspirecoding.financeup.ui.typography.LTAsusFontFamily
 import com.inspirecoding.financeup.util.constants.Constants.Numbers.KEY_DURATION_ANIMATION_PROGRESS_MIN
 import com.inspirecoding.financeup.util.constants.Constants.ProgressConstants.MIN_PROGRESS
 import com.inspirecoding.financeup.util.variables.Variables.financeUpBorderRadiusMd
@@ -63,12 +64,14 @@ fun TotalCard(
             verticalArrangement = Arrangement.SpaceBetween
         ) {
             Text(
+                fontFamily = LTAsusFontFamily(),
                 text = title,
                 style = FinanceUpTypography.titleMedium,
                 fontWeight = FontWeight.Bold
             )
 
             Text(
+                fontFamily = LTAsusFontFamily(),
                 text = displayAmount.formatCurrency(),
                 style = FinanceUpTypography.titleLarge,
                 fontWeight = FontWeight.Bold,
