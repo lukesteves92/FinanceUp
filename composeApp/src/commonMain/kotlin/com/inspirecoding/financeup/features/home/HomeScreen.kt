@@ -12,6 +12,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -19,6 +20,7 @@ import androidx.compose.ui.graphics.Color
 import com.inspirecoding.financeup.model.IncomeItem
 import com.inspirecoding.financeup.model.SpendingItem
 import com.inspirecoding.financeup.ui.components.background.FinanceUpDefaultBackground
+import com.inspirecoding.financeup.ui.components.bottomsheet.main.FinanceUpBottomSheet
 import com.inspirecoding.financeup.ui.components.budget.BudgetProgressBar
 import com.inspirecoding.financeup.ui.components.expenses.ExpensesAndIncomes
 import com.inspirecoding.financeup.ui.components.income.section.IncomeSection
@@ -26,6 +28,7 @@ import com.inspirecoding.financeup.ui.components.spending.section.SpendingSectio
 import com.inspirecoding.financeup.ui.components.top.FinanceUpTopBar
 import com.inspirecoding.financeup.util.enums.expensetype.ExpenseType
 import com.inspirecoding.financeup.util.enums.incometype.IncomeType
+import com.inspirecoding.financeup.util.enums.sheet.DefaultSheetType
 
 
 @Composable
@@ -35,6 +38,8 @@ fun HomeScreen() {
 
 @Composable
 fun HomeContent() {
+    val isSheetOpen = rememberSaveable { mutableStateOf(false) }
+    val defaultSheetType = remember { mutableStateOf(DefaultSheetType.INCOME) }
     var currentSelectedDate by remember { mutableStateOf("Novembro/2024") }
     val spendingItems = remember {
         mutableStateListOf(
@@ -73,6 +78,26 @@ fun HomeContent() {
     val totalIncomes by derivedStateOf {
         filteredIncomeItems.sumOf { it.amount.toDouble() }.toFloat()
     }
+
+    FinanceUpBottomSheet(
+        isSheetOpen = isSheetOpen.value,
+        onDismissRequest = { condition -> isSheetOpen.value = condition },
+        type = defaultSheetType.value,
+        onAddIncomeClick = { income, condition ->
+            incomeItems.add(income)
+            if (income.receivedDate == currentSelectedDate) {
+                currentSelectedDate = income.receivedDate
+            }
+            isSheetOpen.value = condition
+        },
+        onAddExpenseClick = { expense, condition ->
+            spendingItems.add(expense)
+            if (expense.purchaseDate == currentSelectedDate) {
+                currentSelectedDate = expense.purchaseDate
+            }
+            isSheetOpen.value = condition
+        }
+    )
 
     Scaffold(
         modifier = Modifier.fillMaxSize(),
@@ -115,6 +140,10 @@ fun HomeContent() {
                     spendingItems = filteredSpendingItems,
                     onDeleteItem = { item ->
                         spendingItems.remove(item)
+                    },
+                    isAddItem = {
+                        defaultSheetType.value = DefaultSheetType.EXPENSE
+                        isSheetOpen.value = true
                     }
                 )
 
@@ -123,6 +152,10 @@ fun HomeContent() {
                     incomeItems = filteredIncomeItems,
                     onDeleteItem = { item ->
                         incomeItems.remove(item)
+                    },
+                    isAddItem = {
+                        defaultSheetType.value = DefaultSheetType.INCOME
+                        isSheetOpen.value = true
                     }
                 )
             }
@@ -133,12 +166,13 @@ fun HomeContent() {
 @Composable
 fun SpendingBreakdownScreen(
     spendingItems: List<SpendingItem>,
-    onDeleteItem: (SpendingItem) -> Unit
+    onDeleteItem: (SpendingItem) -> Unit,
+    isAddItem: () -> Unit
 ) {
     SpendingSection(
         spendingItemsProvider = { spendingItems },
         modifier = Modifier.fillMaxSize(),
-        isAddItem = {},
+        isAddItem = isAddItem,
         onDeleteItem = onDeleteItem
     )
 }
@@ -146,12 +180,13 @@ fun SpendingBreakdownScreen(
 @Composable
 fun IncomeBreakdownScreen(
     incomeItems: List<IncomeItem>,
-    onDeleteItem: (IncomeItem) -> Unit
+    onDeleteItem: (IncomeItem) -> Unit,
+    isAddItem: () -> Unit,
 ) {
     IncomeSection(
         incomeItemsProvider = { incomeItems },
         modifier = Modifier.fillMaxSize(),
-        onAddItem = {},
+        isAddItem = isAddItem,
         onDeleteItem = onDeleteItem
     )
 }

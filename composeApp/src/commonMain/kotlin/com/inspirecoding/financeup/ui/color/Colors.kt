@@ -67,3 +67,8 @@ val BottomSheetDragHandleColor = Color(0xFF4A4950)
 
 // BudgetProgressBar
 val BudgetProgressBarBackgroundColor = Color(0xFFC4A02F)
+
+// Custom Chip
+val CustomChipTextColor = Color(0xFFFFFFFF)
+val CustomChipBackgroundColorSelected = Color(0xFF39383F)
+val CustomChipBackgroundColorDisabled = Color(0xFF83818C)

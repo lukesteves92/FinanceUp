@@ -1,5 +1,29 @@
 <resources>
 
+    <!--    Custom Chip -->
+    <string name="income_salary">Salário</string>
+    <string name="income_earnings">Rendimentos</string>
+    <string name="income_others">Outros</string>
+
+    <string name="expense_food">Alimentação</string>
+    <string name="expense_shopping">Compras</string>
+    <string name="expense_rent">Aluguel</string>
+    <string name="expense_leisure">Lazer</string>
+    <string name="expense_others">Outros</string>
+
+    <!--    Bottom Sheet -->
+    <string name="default_sheet_add_income_title">Adicionar Receita</string>
+    <string name="default_sheet_add_expense_title">Adicionar Despesa</string>
+    <string name="default_sheet_name_hint">Nome</string>
+    <string name="default_sheet_name_label">Nome</string>
+    <string name="default_sheet_value_hint">Valor</string>
+    <string name="default_sheet_value_label">Valor</string>
+    <string name="default_sheet_date_hint">Data (Mês/Ano)</string>
+    <string name="default_sheet_date_label">Data</string>
+    <string name="default_sheet_error_message">Insira algum valor</string>
+    <string name="default_sheet_close_button">Fechar</string>
+    <string name="default_sheet_add_button">Adicionar</string>
+
     <!--    Menu DropDown -->
     <string name="text_select_date">Selecione uma data</string>
 

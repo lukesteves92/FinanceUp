@@ -3,8 +3,18 @@ package com.inspirecoding.financeup.extensions
 import androidx.compose.runtime.Composable
 import com.inspirecoding.financeup.util.constants.Constants.Numbers.KEY_NUMBER_SIX
 import com.inspirecoding.financeup.util.constants.Constants.Text.EMPTY_STRING_DEFAULT
+import com.inspirecoding.financeup.util.enums.expensetype.ExpenseType
+import com.inspirecoding.financeup.util.enums.incometype.IncomeType
 import com.inspirecoding.financeup.util.enums.inputtext.TextFieldState
 import financeup.composeapp.generated.resources.Res
+import financeup.composeapp.generated.resources.expense_food
+import financeup.composeapp.generated.resources.expense_leisure
+import financeup.composeapp.generated.resources.expense_others
+import financeup.composeapp.generated.resources.expense_rent
+import financeup.composeapp.generated.resources.expense_shopping
+import financeup.composeapp.generated.resources.income_earnings
+import financeup.composeapp.generated.resources.income_others
+import financeup.composeapp.generated.resources.income_salary
 import financeup.composeapp.generated.resources.message_email_invalid_format
 import financeup.composeapp.generated.resources.message_password_invalid_format
 import org.jetbrains.compose.resources.stringResource
@@ -71,6 +81,29 @@ fun Float.formatCurrency(): String {
     }
 }
 
+fun String.toRawAmount(): Float {
+    return this.replace("[^\\d]".toRegex(), "").toFloatOrNull()?.div(100) ?: 0f
+}
+
 fun Float.toPercentage(): String {
     return "${(this * 100).toInt()}%"
+}
+
+@Composable
+fun IncomeType.displayName(): String {
+    return when (this) {
+        IncomeType.SALARY -> stringResource(Res.string.income_salary)
+        IncomeType.EARNINGS -> stringResource(Res.string.income_earnings)
+        IncomeType.OTHERS -> stringResource(Res.string.income_others)
+    }
+}
+@Composable
+fun ExpenseType.displayName(): String {
+    return when (this) {
+        ExpenseType.FOOD -> stringResource(Res.string.expense_food)
+        ExpenseType.SHOPPING -> stringResource(Res.string.expense_shopping)
+        ExpenseType.RENT -> stringResource(Res.string.expense_rent)
+        ExpenseType.LEISURE -> stringResource(Res.string.expense_leisure)
+        ExpenseType.OTHERS -> stringResource(Res.string.expense_others)
+    }
 }

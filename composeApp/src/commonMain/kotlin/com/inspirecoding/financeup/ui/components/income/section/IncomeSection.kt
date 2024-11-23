@@ -35,7 +35,7 @@ import org.jetbrains.compose.resources.stringResource
 fun IncomeSection(
     modifier: Modifier = Modifier,
     incomeItemsProvider: () -> List<IncomeItem>,
-    onAddItem: () -> Unit,
+    isAddItem: () -> Unit,
     onDeleteItem: (IncomeItem) -> Unit
 ) {
     val incomeItems = incomeItemsProvider()
@@ -64,7 +64,7 @@ fun IncomeSection(
                     .wrapContentWidth()
                     .padding(top = financeUpDimenSmall),
                 text = stringResource(Res.string.text_expenses_and_incomes_component_bt_title),
-                onClick = onAddItem
+                onClick = isAddItem
             )
         }
 
