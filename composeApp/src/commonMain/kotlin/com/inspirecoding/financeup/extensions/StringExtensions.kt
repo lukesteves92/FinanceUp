@@ -49,17 +49,19 @@ fun String.isValidSecret(): TextFieldState {
 }
 
 fun Float.formatCurrency(): String {
-    val formatted = this.toString()
-        .replace(".", ",")
-        .let {
-            if (it.contains(",")) {
-                val parts = it.split(",")
-                if (parts[1].length == 1) "${it}0" else it
-            } else {
-                "$it,00"
-            }
-        }
-    return "R$ $formatted"
+    val integerPart = this.toInt()
+    val decimalPart = ((this - integerPart) * 100).toInt().let {
+        if (it < 10) "0$it" else it.toString()
+    }
+
+    val formattedIntegerPart = integerPart
+        .toString()
+        .reversed()
+        .chunked(3)
+        .joinToString(".")
+        .reversed()
+
+    return "R$ $formattedIntegerPart,$decimalPart"
 }
 
 fun Float.toPercentage(): String {

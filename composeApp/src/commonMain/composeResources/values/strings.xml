@@ -1,5 +1,10 @@
 <resources>
 
+    <!--    Expenses And Incomes Component -->
+    <string name="text_expenses_and_incomes_component_title">Seus Gastos</string>
+    <string name="text_expenses_component_title">Gastos</string>
+    <string name="text_incomes_component_title">Recebimentos</string>
+
     <!--    Budget Component -->
     <string name="text_budget_component_title">Orçamento Mensal</string>
     <string name="text_budget_component_title_over">Os gastos estão acima do orçamento!</string>

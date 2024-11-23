@@ -70,13 +70,16 @@ fun BudgetProgressBar(
                 fontFamily = LTAsusFontFamily(),
                 text = stringResource(Res.string.text_budget_component_title),
                 style = FinanceUpTypography.titleMedium,
-                fontWeight = FontWeight.Bold
+                fontWeight = FontWeight.Bold,
+                modifier = Modifier.padding(bottom = financeUpDimenLarge)
             )
+
             Text(
                 fontFamily = LTAsusFontFamily(),
                 text = budget,
                 style = FinanceUpTypography.titleMedium,
-                fontWeight = FontWeight.Bold
+                fontWeight = FontWeight.Bold,
+                modifier = Modifier.padding(bottom = financeUpDimenLarge)
             )
         }
 
