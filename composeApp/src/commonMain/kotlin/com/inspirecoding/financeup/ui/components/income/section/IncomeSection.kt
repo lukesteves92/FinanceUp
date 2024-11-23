@@ -26,8 +26,11 @@ import org.jetbrains.compose.resources.stringResource
 @Composable
 fun IncomeSection(
     modifier: Modifier = Modifier,
-    incomeItems: List<IncomeItem>
+    incomeItemsProvider: () -> List<IncomeItem>
 ) {
+
+    val incomeItems = incomeItemsProvider()
+
     Column(
         modifier = modifier
             .fillMaxWidth()

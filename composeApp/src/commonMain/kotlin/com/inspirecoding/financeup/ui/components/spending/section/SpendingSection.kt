@@ -26,8 +26,11 @@ import org.jetbrains.compose.resources.stringResource
 @Composable
 fun SpendingSection(
     modifier: Modifier = Modifier,
-    spendingItems: List<SpendingItem>
+    spendingItemsProvider: () -> List<SpendingItem>
 ) {
+
+    val spendingItems = spendingItemsProvider()
+
     Column(
         modifier = modifier
             .fillMaxWidth()

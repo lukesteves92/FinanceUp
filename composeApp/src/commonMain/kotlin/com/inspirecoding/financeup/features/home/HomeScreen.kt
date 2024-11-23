@@ -111,7 +111,7 @@ fun SpendingBreakdownScreen() {
     )
 
     SpendingSection(
-        spendingItems = spendingItems,
+        spendingItemsProvider = { spendingItems },
         modifier = Modifier.fillMaxSize()
     )
 }
@@ -141,7 +141,7 @@ fun IncomeBreakdownScreen() {
     )
 
     IncomeSection(
-        incomeItems = incomeItems,
+        incomeItemsProvider = { incomeItems },
         modifier = Modifier.fillMaxSize()
     )
 }
