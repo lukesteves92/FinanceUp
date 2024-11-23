@@ -33,7 +33,7 @@ fun HomeScreen() {
 @Composable
 fun HomeContent() {
 
-    val totalExpenses = remember { mutableStateOf(6650f) } // Gastos totais
+    val totalExpenses = remember { mutableStateOf(6650f) }
     val totalIncomes = remember { mutableStateOf(8500f) }
 
     Scaffold(
