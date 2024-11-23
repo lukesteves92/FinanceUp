@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.Text
@@ -23,18 +24,22 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.dp
 import com.inspirecoding.financeup.extensions.toPercentage
 import com.inspirecoding.financeup.ui.color.BudgetProgressBarBackgroundColor
+import com.inspirecoding.financeup.ui.components.button.OutlineButtonUI
 import com.inspirecoding.financeup.ui.typography.FinanceUpTypography
 import com.inspirecoding.financeup.ui.typography.LTAsusFontFamily
 import com.inspirecoding.financeup.util.constants.Constants.Numbers.KEY_DURATION_ANIMATION_PROGRESS_MIN
 import com.inspirecoding.financeup.util.constants.Constants.ProgressConstants.MAX_PROGRESS
 import com.inspirecoding.financeup.util.constants.Constants.ProgressConstants.MIN_PROGRESS
 import com.inspirecoding.financeup.util.variables.Variables.financeUpBorderRadiusSm
+import com.inspirecoding.financeup.util.variables.Variables.financeUpDimen3XsLarge
 import com.inspirecoding.financeup.util.variables.Variables.financeUpDimenLarge
 import com.inspirecoding.financeup.util.variables.Variables.financeUpDimenSmall
 import com.inspirecoding.financeup.util.variables.Variables.financeUpDimenSmallMedium
 import financeup.composeapp.generated.resources.Res
+import financeup.composeapp.generated.resources.text_budget_component_bt_title
 import financeup.composeapp.generated.resources.text_budget_component_title
 import financeup.composeapp.generated.resources.text_budget_component_title_over
 import org.jetbrains.compose.resources.stringResource
@@ -107,13 +112,36 @@ fun BudgetProgressBar(
             )
         }
 
-        if (isOverBudget) {
-            Text(
-                text = stringResource(Res.string.text_budget_component_title_over),
-                color = Color.Red,
-                style = FinanceUpTypography.bodySmall,
-                modifier = Modifier.padding(top = financeUpDimenSmall)
-            )
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.SpaceBetween
+        ) {
+            Row(
+                horizontalArrangement = Arrangement.Start,
+            ) {
+                if (isOverBudget) {
+                    Text(
+                        text = stringResource(Res.string.text_budget_component_title_over),
+                        color = Color.Red,
+                        style = FinanceUpTypography.bodySmall,
+                        modifier = Modifier.padding(top = financeUpDimenSmall)
+                    )
+                }
+            }
+
+            Row(
+                horizontalArrangement = Arrangement.End,
+            ) {
+                OutlineButtonUI(
+                    modifier = Modifier
+                        .height(financeUpDimen3XsLarge)
+                        .wrapContentWidth()
+                        .padding(top = financeUpDimenSmall),
+                    text = stringResource(Res.string.text_budget_component_bt_title),
+                    onClick = {  }
+                )
+            }
         }
     }
 }

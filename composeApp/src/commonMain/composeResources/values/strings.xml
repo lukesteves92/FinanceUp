@@ -7,6 +7,7 @@
 
     <!--    Budget Component -->
     <string name="text_budget_component_title">Orçamento Mensal</string>
+    <string name="text_budget_component_bt_title">Alterar</string>
     <string name="text_budget_component_title_over">Os gastos estão acima do orçamento!</string>
 
     <!--    Invalid E-mail Format-->
