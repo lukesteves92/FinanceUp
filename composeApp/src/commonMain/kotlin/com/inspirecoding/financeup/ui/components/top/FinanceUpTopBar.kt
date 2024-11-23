@@ -17,8 +17,9 @@ import androidx.compose.ui.text.TextStyle
 import com.inspirecoding.financeup.ui.theme.FinanceUpTheme
 import com.inspirecoding.financeup.ui.typography.LTAsusFontFamily
 import com.inspirecoding.financeup.util.constants.Constants.Text.EMPTY_STRING_DEFAULT
+import com.inspirecoding.financeup.util.variables.Variables.financeUpDimen2XLarge
+import com.inspirecoding.financeup.util.variables.Variables.financeUpDimen3XsLarge
 import com.inspirecoding.financeup.util.variables.Variables.financeUpDimen4XsLarge
-import com.inspirecoding.financeup.util.variables.Variables.financeUpDimenExtraWideL
 import com.inspirecoding.financeup.util.variables.Variables.financeUpLineHeightTopBarText
 import financeup.composeapp.generated.resources.Res
 import financeup.composeapp.generated.resources.finance_up_ic_arrow_left
@@ -70,7 +71,7 @@ fun FinanceUpTopBar(
             painter = painterResource(Res.drawable.finance_up_logo),
             contentDescription = null,
             modifier = Modifier
-                .height(financeUpDimenExtraWideL)
+                .height(financeUpDimen4XsLarge)
                 .align(Alignment.Center)
         )
     }

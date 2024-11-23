@@ -33,7 +33,7 @@ val TextFieldDisableColor = Color(0xFF83818C)
 val TextFieldCursorColor = Color(0xFF00B7FC)
 
 // Floating Button Colors
-val FloatingActionButtonBackgroundColor = Color(0xFFAC5CFC)
+val FloatingActionButtonBackgroundColor = Color(0xFFC4A02F)
 val FloatingActionButtonContentColor = Color(0xFFFFFFFF)
 val FloatingActionButtonLoadingColor = Color(0xFFCC9BFD)
 
@@ -64,3 +64,6 @@ val IconCheckMarkColor = Color(0xFF03A64A)
 // Bottom Sheet
 val BottomSheetBackgroundColor = Color(0xFF39383F)
 val BottomSheetDragHandleColor = Color(0xFF4A4950)
+
+// BudgetProgressBar
+val BudgetProgressBarBackgroundColor = Color(0xFFC4A02F)

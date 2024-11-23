@@ -13,8 +13,10 @@ import com.inspirecoding.financeup.util.variables.Variables.financeUpBorderRadiu
 import com.inspirecoding.financeup.util.variables.Variables.financeUpDimen2XLarge
 import com.inspirecoding.financeup.util.variables.Variables.financeUpDimen5XLarge
 import financeup.composeapp.generated.resources.Res
+import financeup.composeapp.generated.resources.finance_up_ic_add
 import financeup.composeapp.generated.resources.finance_up_ic_arrow_right
 import financeup.composeapp.generated.resources.finance_up_ic_confirm
+import financeup.composeapp.generated.resources.finance_up_ic_minus
 import org.jetbrains.compose.resources.painterResource
 
 @Composable
@@ -23,6 +25,8 @@ fun FloatingButtonUI(
     isLoading: Boolean = false,
     enabled: Boolean = true,
     isConfirm: Boolean = false,
+    isAdd: Boolean = false,
+    isLess: Boolean = false,
     onClick: () -> Unit
 ) {
     FloatingActionButton(
@@ -47,6 +51,22 @@ fun FloatingButtonUI(
                 isConfirm -> {
                     Icon(
                         painter = painterResource(Res.drawable.finance_up_ic_confirm),
+                        contentDescription = null,
+                        tint = Color.Unspecified
+                    )
+                }
+
+                isAdd -> {
+                    Icon(
+                        painter = painterResource(Res.drawable.finance_up_ic_add),
+                        contentDescription = null,
+                        tint = Color.Unspecified
+                    )
+                }
+
+                isLess -> {
+                    Icon(
+                        painter = painterResource(Res.drawable.finance_up_ic_minus),
                         contentDescription = null,
                         tint = Color.Unspecified
                     )

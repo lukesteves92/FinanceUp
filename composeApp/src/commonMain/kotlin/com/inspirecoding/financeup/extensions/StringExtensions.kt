@@ -47,3 +47,21 @@ fun String.isValidSecret(): TextFieldState {
         else -> TextFieldState.ERROR
     }
 }
+
+fun Float.formatCurrency(): String {
+    val formatted = this.toString()
+        .replace(".", ",")
+        .let {
+            if (it.contains(",")) {
+                val parts = it.split(",")
+                if (parts[1].length == 1) "${it}0" else it
+            } else {
+                "$it,00"
+            }
+        }
+    return "R$ $formatted"
+}
+
+fun Float.toPercentage(): String {
+    return "${(this * 100).toInt()}%"
+}

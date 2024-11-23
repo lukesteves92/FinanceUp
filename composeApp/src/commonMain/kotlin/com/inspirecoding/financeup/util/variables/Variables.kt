@@ -37,6 +37,7 @@ object Variables {
     val financeUpDimen4XLarge: Dp = 42.dp
     val financeUpDimen4XsLarge: Dp = 56.dp
     val financeUpDimen5XLarge: Dp = 62.dp
+    val financeUpDimen6XLarge: Dp = 108.dp
     val financeUpDimenExtraWideS: Dp = 132.dp
     val financeUpDimenExtraWideM: Dp = 156.dp
     val financeUpDimenExtraWideL: Dp = 170.dp

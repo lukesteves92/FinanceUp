@@ -19,5 +19,11 @@ object Constants {
         const val KEY_DURATION_CURRENT_STEP_MIN: Long = 100
         const val KEY_DURATION_ANIMATION_MIN = 500
         const val KEY_TOAST_DURATION_MAX: Long = 5000
+        const val KEY_DURATION_ANIMATION_PROGRESS_MIN = 1000
+    }
+
+    object ProgressConstants {
+        const val MAX_PROGRESS = 1f
+        const val MIN_PROGRESS = 0f
     }
 }

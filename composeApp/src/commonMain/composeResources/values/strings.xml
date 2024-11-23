@@ -1,5 +1,9 @@
 <resources>
 
+    <!--    Budget Component -->
+    <string name="text_budget_component_title">Orçamento Mensal</string>
+    <string name="text_budget_component_title_over">Os gastos estão acima do orçamento!</string>
+
     <!--    Invalid E-mail Format-->
     <string name="message_email_invalid_format">Para continuar insira um e-mail válido</string>
 
