@@ -16,7 +16,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
-import com.inspirecoding.financeup.model.IncomeItem
+import com.inspirecoding.financeup.model.income.IncomeItem
 import com.inspirecoding.financeup.ui.components.button.OutlineButtonUI
 import com.inspirecoding.financeup.ui.components.empty.EmptyDataCard
 import com.inspirecoding.financeup.ui.components.income.card.IncomeCard

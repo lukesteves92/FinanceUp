@@ -29,7 +29,7 @@ object Constants {
     }
 
     object DataBase {
-        const val FINANCE_UP_DATABASE = "finance_up.db"
+        const val FINANCE_UP_DATABASE = "finance_up_app.db"
 
         // Income Table
         const val INCOME_TABLE = "income_table"

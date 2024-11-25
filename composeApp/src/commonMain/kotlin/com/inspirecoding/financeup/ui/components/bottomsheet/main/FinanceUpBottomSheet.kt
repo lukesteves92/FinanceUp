@@ -6,8 +6,8 @@ import androidx.compose.material3.SheetValue
 import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
-import com.inspirecoding.financeup.model.IncomeItem
-import com.inspirecoding.financeup.model.SpendingItem
+import com.inspirecoding.financeup.model.income.IncomeItem
+import com.inspirecoding.financeup.model.spending.SpendingItem
 import com.inspirecoding.financeup.ui.components.bottomsheet.default.DefaultSheetLayout
 import com.inspirecoding.financeup.ui.theme.FinanceUpTheme
 import com.inspirecoding.financeup.util.enums.sheet.DefaultSheetType

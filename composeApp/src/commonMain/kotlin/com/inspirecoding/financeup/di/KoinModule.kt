@@ -1,10 +1,8 @@
 package com.inspirecoding.financeup.di
 
 import com.inspirecoding.financeup.di.data.dataModule
-import com.inspirecoding.financeup.di.network.networkModule
 import com.inspirecoding.financeup.di.presentation.presentationModule
-import com.inspirecoding.financeup.di.usecase.local.useCaseLocalModule
-import com.inspirecoding.financeup.di.usecase.remote.useCaseRemoteModule
+import com.inspirecoding.financeup.di.usecase.useCaseLocalModule
 import org.koin.core.KoinApplication
 import org.koin.core.context.startKoin
 import org.koin.core.module.Module
@@ -20,8 +18,6 @@ fun initializeKoin(
             targetModule,
             presentationModule,
             dataModule,
-            networkModule,
-            useCaseRemoteModule,
             useCaseLocalModule
         )
     }

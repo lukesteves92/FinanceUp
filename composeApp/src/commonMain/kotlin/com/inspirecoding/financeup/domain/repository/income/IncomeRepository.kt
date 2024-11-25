@@ -1,6 +1,6 @@
 package com.inspirecoding.financeup.domain.repository.income
 
-import com.inspirecoding.financeup.model.IncomeItem
+import com.inspirecoding.financeup.model.income.IncomeItem
 import kotlinx.coroutines.flow.Flow
 
 interface IncomeRepository {

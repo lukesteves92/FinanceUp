@@ -8,8 +8,8 @@ plugins {
     alias(libs.plugins.jetbrainsCompose)
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.kspCompose)
     alias(libs.plugins.room)
-    alias(libs.plugins.ksp)
 }
 
 kotlin {
@@ -50,7 +50,7 @@ kotlin {
             implementation(libs.androidx.datastore.preferences)
 
             // Room
-            implementation(libs.room.runtime)
+            implementation(libs.room.runtime.android)
         }
         commonMain.dependencies {
             implementation(compose.runtime)
@@ -148,6 +148,9 @@ android {
         buildConfig = true
         compose = true
     }
+    dependencies {
+        debugImplementation(compose.uiTooling)
+    }
 }
 
 room {
@@ -155,10 +158,8 @@ room {
 }
 
 dependencies {
-    debugImplementation(compose.uiTooling)
     add("kspAndroid", libs.room.compiler)
+    add("kspIosSimulatorArm64", libs.room.compiler)
     add("kspIosX64", libs.room.compiler)
     add("kspIosArm64", libs.room.compiler)
-    add("kspIosSimulatorArm64", libs.room.compiler)
 }
-

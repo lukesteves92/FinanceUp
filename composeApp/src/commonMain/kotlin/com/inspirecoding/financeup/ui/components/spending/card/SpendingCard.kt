@@ -21,7 +21,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.font.FontWeight
 import com.inspirecoding.financeup.extensions.formatCurrency
-import com.inspirecoding.financeup.model.SpendingItem
+import com.inspirecoding.financeup.model.spending.SpendingItem
 import com.inspirecoding.financeup.ui.color.FinanceUpColorBaselineWhite
 import com.inspirecoding.financeup.ui.theme.FinanceUpTheme
 import com.inspirecoding.financeup.ui.typography.FinanceUpTypography

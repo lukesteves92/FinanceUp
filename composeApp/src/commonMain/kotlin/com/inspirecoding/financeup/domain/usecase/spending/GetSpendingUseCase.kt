@@ -1,7 +1,7 @@
 package com.inspirecoding.financeup.domain.usecase.spending
 
 import com.inspirecoding.financeup.domain.repository.spending.SpendingRepository
-import com.inspirecoding.financeup.model.SpendingItem
+import com.inspirecoding.financeup.model.spending.SpendingItem
 import kotlinx.coroutines.flow.Flow
 
 class GetSpendingUseCase(

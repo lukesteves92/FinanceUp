@@ -10,8 +10,10 @@ import platform.Foundation.NSFileManager
 import platform.Foundation.NSUserDomainMask
 
 fun getDatabaseBuilder(): RoomDatabase.Builder<FinanceUpDatabase> {
-    val dbFile = documentDirectory() + "/$FINANCE_UP_DATABASE"
-    return Room.databaseBuilder(name = dbFile)
+    val dbFilePath = documentDirectory() + "/$FINANCE_UP_DATABASE"
+    return Room.databaseBuilder<FinanceUpDatabase>(
+        name = dbFilePath,
+    )
 }
 
 @OptIn(ExperimentalForeignApi::class)

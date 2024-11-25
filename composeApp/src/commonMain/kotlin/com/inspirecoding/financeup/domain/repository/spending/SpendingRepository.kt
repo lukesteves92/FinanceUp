@@ -1,6 +1,6 @@
 package com.inspirecoding.financeup.domain.repository.spending
 
-import com.inspirecoding.financeup.model.SpendingItem
+import com.inspirecoding.financeup.model.spending.SpendingItem
 import kotlinx.coroutines.flow.Flow
 
 interface SpendingRepository {

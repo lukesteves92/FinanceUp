@@ -4,7 +4,7 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
-import com.inspirecoding.financeup.features.home.HomeScreen
+import com.inspirecoding.financeup.features.home.screen.HomeScreen
 import com.inspirecoding.financeup.navigation.routes.home.HomeRoutes
 
 fun NavGraphBuilder.homeNavHost(

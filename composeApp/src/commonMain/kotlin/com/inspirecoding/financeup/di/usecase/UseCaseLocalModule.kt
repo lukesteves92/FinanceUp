@@ -1,10 +1,11 @@
-package com.inspirecoding.financeup.di.usecase.local
+package com.inspirecoding.financeup.di.usecase
 
 import com.inspirecoding.financeup.domain.usecase.income.GetIncomeUseCase
 import com.inspirecoding.financeup.domain.usecase.spending.GetSpendingUseCase
+import org.koin.core.module.dsl.factoryOf
 import org.koin.dsl.module
 
 val useCaseLocalModule = module {
-    factory { GetIncomeUseCase(incomeRepository = get()) }
-    factory { GetSpendingUseCase(spendingRepository = get()) }
+    factoryOf(::GetIncomeUseCase)
+    factoryOf(::GetSpendingUseCase)
 }

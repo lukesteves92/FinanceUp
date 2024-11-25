@@ -10,7 +10,6 @@ import com.inspirecoding.financeup.util.constants.Constants.DataBase.NAME_COLUMN
 import com.inspirecoding.financeup.util.constants.Constants.DataBase.RECEIVED_DATE_COLUMN_INCOME_TABLE
 import com.inspirecoding.financeup.util.constants.Constants.DataBase.TYPE_COLUMN_INCOME_TABLE
 import com.inspirecoding.financeup.util.constants.Constants.Numbers.KEY_NUMBER_ZERO_LONG
-import com.inspirecoding.financeup.util.enums.incometype.IncomeType
 
 @Entity(tableName = INCOME_TABLE)
 data class IncomeEntity(
@@ -25,7 +24,7 @@ data class IncomeEntity(
     val amount: Float,
 
     @ColumnInfo(name = TYPE_COLUMN_INCOME_TABLE)
-    val type: IncomeType,
+    val type: String,
 
     @ColumnInfo(name = RECEIVED_DATE_COLUMN_INCOME_TABLE)
     val receivedDate: String

@@ -7,7 +7,8 @@ import com.inspirecoding.financeup.database.db.FinanceUpDatabase
 import com.inspirecoding.financeup.util.constants.Constants.DataBase.FINANCE_UP_DATABASE
 
 fun getDatabaseBuilder(context: Context): RoomDatabase.Builder<FinanceUpDatabase> {
-    val dbFile = context.getDatabasePath(FINANCE_UP_DATABASE)
+    val appContext = context.applicationContext
+    val dbFile = appContext.getDatabasePath(FINANCE_UP_DATABASE)
     return Room.databaseBuilder(
         context = context,
         name = dbFile.absolutePath

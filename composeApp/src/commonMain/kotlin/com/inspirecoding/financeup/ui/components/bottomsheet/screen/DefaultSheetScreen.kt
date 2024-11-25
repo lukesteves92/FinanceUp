@@ -26,13 +26,14 @@ import androidx.compose.ui.text.style.TextAlign
 import com.inspirecoding.financeup.extensions.displayName
 import com.inspirecoding.financeup.extensions.formatCurrency
 import com.inspirecoding.financeup.extensions.toRawAmount
-import com.inspirecoding.financeup.model.IncomeItem
-import com.inspirecoding.financeup.model.SpendingItem
+import com.inspirecoding.financeup.model.income.IncomeItem
+import com.inspirecoding.financeup.model.spending.SpendingItem
 import com.inspirecoding.financeup.ui.components.button.OutlineButtonUI
 import com.inspirecoding.financeup.ui.components.chip.CustomChip
 import com.inspirecoding.financeup.ui.components.input.InputTextField
 import com.inspirecoding.financeup.ui.typography.FinanceUpTypography
 import com.inspirecoding.financeup.ui.typography.LTAsusFontFamily
+import com.inspirecoding.financeup.util.constants.Constants.Numbers.KEY_NUMBER_ZERO_LONG
 import com.inspirecoding.financeup.util.constants.Constants.ProgressConstants.MAX_PROGRESS
 import com.inspirecoding.financeup.util.constants.Constants.ProgressConstants.MIN_PROGRESS
 import com.inspirecoding.financeup.util.constants.Constants.Text.EMPTY_STRING_DEFAULT

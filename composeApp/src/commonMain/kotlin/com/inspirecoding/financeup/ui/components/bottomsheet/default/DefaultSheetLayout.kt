@@ -1,8 +1,8 @@
 package com.inspirecoding.financeup.ui.components.bottomsheet.default
 
 import androidx.compose.runtime.Composable
-import com.inspirecoding.financeup.model.IncomeItem
-import com.inspirecoding.financeup.model.SpendingItem
+import com.inspirecoding.financeup.model.income.IncomeItem
+import com.inspirecoding.financeup.model.spending.SpendingItem
 import com.inspirecoding.financeup.ui.components.bottomsheet.screen.DefaultSheetScreen
 import com.inspirecoding.financeup.util.enums.sheet.DefaultSheetType
 

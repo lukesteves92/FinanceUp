@@ -10,7 +10,6 @@ import com.inspirecoding.financeup.util.constants.Constants.DataBase.PURCHASE_DA
 import com.inspirecoding.financeup.util.constants.Constants.DataBase.SPENDING_TABLE
 import com.inspirecoding.financeup.util.constants.Constants.DataBase.TYPE_COLUMN_SPENDING_TABLE
 import com.inspirecoding.financeup.util.constants.Constants.Numbers.KEY_NUMBER_ZERO_LONG
-import com.inspirecoding.financeup.util.enums.expensetype.ExpenseType
 
 @Entity(tableName = SPENDING_TABLE)
 data class SpendingEntity(
@@ -25,7 +24,7 @@ data class SpendingEntity(
     val amount: Float,
 
     @ColumnInfo(name = TYPE_COLUMN_SPENDING_TABLE)
-    val type: ExpenseType,
+    val type: String,
 
     @ColumnInfo(name = PURCHASE_DATE_COLUMN_SPENDING_TABLE)
     val purchaseDate: String
