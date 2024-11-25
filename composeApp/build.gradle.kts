@@ -70,6 +70,9 @@ kotlin {
             // Room
             implementation(libs.room.runtime)
             implementation(libs.sqlite.bundled)
+
+            // Ktor
+            implementation(libs.ktor.serialization.kotlinx.json)
         }
         commonTest.dependencies {}
         iosMain.dependencies {}

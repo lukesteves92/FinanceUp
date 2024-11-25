@@ -5,6 +5,21 @@ Welcome to FinanceUP App project! This guide will walk you through setting up th
 
 `Jetpack Compose` & `MVI Architecture` & `KMP`
 
+## 📷 Previews
+
+<p align="center">
+<img src="previews/preview1.png" alt="drawing" width="270px" />
+<img src="previews/preview2.png" alt="drawing" width="270px" />
+<img src="previews/preview3.png" alt="drawing" width="270px" />
+<img src="previews/preview4.png" alt="drawing" width="270px" />
+<img src="previews/preview5.png" alt="drawing" width="270px" />
+<img src="previews/preview6.png" alt="drawing" width="270px" />
+<img src="previews/preview7.png" alt="drawing" width="270px" />
+<img src="previews/preview8.png" alt="drawing" width="270px" />
+<img src="previews/preview9.png" alt="drawing" width="270px" />
+<img src="previews/preview10.png" alt="drawing" width="270px" /></br>
+</p>
+
 ## 🛠 Structure
 
 This is a Kotlin Multiplatform project targeting Android, iOS.
@@ -31,9 +46,8 @@ This is a Kotlin Multiplatform project targeting Android, iOS.
   - ViewModel: UI related data holder and lifecycle aware.
   - App Startup: Provides a straightforward, performant way to initialize components at application startup.
   - Navigation: For navigating screens and [Koin Compose] for injecting dependencies.
-  - [Koin]: Dependency Injection.
-- [Coil]: Jetpack Compose image loading library.
-- [Ktor]: Construct the REST APIs and paging network data.
+- [Koin]: Dependency Injection.
+- [Room]: Local persistence library for managing SQLite databases efficiently and safely, ensuring type safety and seamless database access.
 
 ## ✍️ Prerequisites
 

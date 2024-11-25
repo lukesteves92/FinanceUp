@@ -10,40 +10,38 @@ import kotlinx.coroutines.flow.flow
 
 class IncomeRepositoryImpl(private val database: FinanceUpDatabase) : IncomeRepository {
 
-    private val incomeDao = database.incomeDao()
-
     override suspend fun insertIncome(incomeItem: IncomeItem) {
         val entity = incomeItem.toEntity()
-        incomeDao.insertIncome(entity)
+        database.incomeDao().insertIncome(entity)
     }
 
     override suspend fun insertIncomes(incomeItems: List<IncomeItem>) {
         val entities = incomeItems.map { it.toEntity() }
-        incomeDao.insertIncomes(entities)
+        database.incomeDao().insertIncomes(entities)
     }
 
     override fun getIncomeByDate(date: String): Flow<List<IncomeItem>> = flow {
-        incomeDao.getIncomeByDate(date).collect { entities ->
+        database.incomeDao().getIncomeByDate(date).collect { entities ->
             emit(entities.map { it.toModel() })
         }
     }
 
     override fun getAllIncomes(): Flow<List<IncomeItem>> = flow {
-        incomeDao.getAllIncomes().collect { entities ->
+        database.incomeDao().getAllIncomes().collect { entities ->
             emit(entities.map { it.toModel() })
         }
     }
 
     override suspend fun deleteIncome(incomeItem: IncomeItem) {
         val entity = incomeItem.toEntity()
-        incomeDao.deleteIncome(entity)
+        database.incomeDao().deleteIncome(entity)
     }
 
     override suspend fun deleteIncomesByDate(date: String) {
-        incomeDao.deleteIncomesByDate(date)
+        database.incomeDao().deleteIncomesByDate(date)
     }
 
     override suspend fun deleteAllIncomes() {
-        incomeDao.deleteAllIncomes()
+        database.incomeDao().deleteAllIncomes()
     }
 }

@@ -19,7 +19,7 @@ fun LoginNavHost(
 ) {
     NavHost(
         navController = navHostController,
-        startDestination = HomeRoutes.Graph,
+        startDestination = LoginRoutes.Email,
         modifier = modifier
     ) {
         composable<LoginRoutes.Email> {

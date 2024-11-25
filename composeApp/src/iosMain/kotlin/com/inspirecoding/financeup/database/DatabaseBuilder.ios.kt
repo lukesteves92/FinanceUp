@@ -11,7 +11,7 @@ import platform.Foundation.NSUserDomainMask
 
 fun getDatabaseBuilder(): RoomDatabase.Builder<FinanceUpDatabase> {
     val dbFilePath = documentDirectory() + "/$FINANCE_UP_DATABASE"
-    return Room.databaseBuilder(
+    return Room.databaseBuilder<FinanceUpDatabase>(
         name = dbFilePath
     )
 }
