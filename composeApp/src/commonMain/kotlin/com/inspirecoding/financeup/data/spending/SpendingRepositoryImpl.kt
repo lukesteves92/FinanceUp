@@ -10,7 +10,9 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map
 
-class SpendingRepositoryImpl(private val spendingDao: SpendingDao) : SpendingRepository {
+class SpendingRepositoryImpl(private val database: FinanceUpDatabase) : SpendingRepository {
+
+    private val spendingDao = database.spendingDao()
 
     override suspend fun insertSpending(spendingItem: SpendingItem) {
         val entity = spendingItem.toEntity()

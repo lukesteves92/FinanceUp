@@ -2,14 +2,15 @@ package com.inspirecoding.financeup.data.income
 
 import com.inspirecoding.financeup.data.mapping.toEntity
 import com.inspirecoding.financeup.data.mapping.toModel
-import com.inspirecoding.financeup.database.dao.income.IncomeDao
+import com.inspirecoding.financeup.database.db.FinanceUpDatabase
 import com.inspirecoding.financeup.domain.repository.income.IncomeRepository
 import com.inspirecoding.financeup.model.income.IncomeItem
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.flow.map
 
-class IncomeRepositoryImpl(private val incomeDao: IncomeDao) : IncomeRepository {
+class IncomeRepositoryImpl(private val database: FinanceUpDatabase) : IncomeRepository {
+
+    private val incomeDao = database.incomeDao()
 
     override suspend fun insertIncome(incomeItem: IncomeItem) {
         val entity = incomeItem.toEntity()
