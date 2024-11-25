@@ -76,31 +76,24 @@ class HomeViewModel(
 
     private fun updateSelectedDate(date: String) {
         viewModelScope.launch {
-            combine(
-                getIncomeUseCase.getIncomeByDate(date),
-                getSpendingUseCase.getSpendingByDate(date)
-            ) { incomes, spendings ->
-                Pair(incomes, spendings)
-            }.collect { (incomes, spendings) ->
-                _state.update { currentState ->
-                    currentState.copy(
-                        currentSelectedDate = date,
-                        incomeItems = incomes,
-                        spendingItems = spendings
-                    )
+            getIncomeUseCase.getIncomeByDate(date)
+                .combineWith(getSpendingUseCase.getSpendingByDate(date)) { incomes, spendings ->
+                    _state.update { currentState ->
+                        currentState.copy(
+                            currentSelectedDate = date,
+                            incomeItems = incomes,
+                            spendingItems = spendings
+                        )
+                    }
+                    loadInitialData()
                 }
-                loadInitialData()
-            }
         }
     }
 
     private fun loadInitialData() {
         viewModelScope.launch {
             getIncomeUseCase.getAllIncomes()
-                .combine(getSpendingUseCase.getAllSpendings()) { incomes, spendings ->
-                    incomes to spendings
-                }
-                .collect { (allIncomes, allSpendings) ->
+                .combineWith(getSpendingUseCase.getAllSpendings()) { allIncomes, allSpendings ->
                     _state.update { currentState ->
                         currentState.copy(
                             incomeItems = allIncomes,
@@ -116,4 +109,10 @@ class HomeViewModel(
                 }
         }
     }
+
+    private suspend fun <T, U> Flow<T>.combineWith(
+        other: Flow<U>,
+        action: suspend (T, U) -> Unit
+    ) = combine(other) { t, u -> t to u }
+        .collect { (t, u) -> action(t, u) }
 }

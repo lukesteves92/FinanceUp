@@ -33,61 +33,46 @@ kotlin {
     
     sourceSets {
         androidMain.dependencies {
+            // Android
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
 
             // Koin - Inject dependency
             implementation(libs.koin.android)
 
-            // Ktor - Http Request
-            implementation(libs.ktor.client.android)
-            implementation(libs.ktor.client.okhttp)
-
             // Splash Screen
             implementation(libs.androidx.core.splashscreen)
-
-            // DataStore
-            implementation(libs.androidx.datastore.preferences)
 
             // Room
             implementation(libs.room.runtime.android)
         }
         commonMain.dependencies {
+            // Compose
             implementation(compose.runtime)
             implementation(compose.foundation)
             implementation(compose.material3)
             implementation(compose.ui)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
+
+            // Lifecycle
             implementation(libs.androidx.lifecycle.viewmodel)
             implementation(libs.androidx.lifecycle.runtime.compose)
 
             // Navigation
             implementation(libs.compose.navigation)
 
-            // Coil
-            implementation(libs.landscapist.coil3)
-
             // Koin - Inject dependency
             implementation(libs.koin.core)
             implementation(libs.koin.compose)
             implementation(libs.koin.compose.viewmodel)
 
-            // Ktor - Http Request
-            implementation(libs.bundles.ktor)
-
-            //Paging3
-            implementation(libs.paging.compose.common)
-            implementation(libs.paging.common)
-
             // Room
             implementation(libs.room.runtime)
             implementation(libs.sqlite.bundled)
         }
-        iosMain.dependencies {
-            // Ktor - Http Request
-            implementation(libs.ktor.client.darwin)
-        }
+        commonTest.dependencies {}
+        iosMain.dependencies {}
     }
 }
 
